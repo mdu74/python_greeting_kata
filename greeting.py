@@ -1,3 +1,3 @@
 class Greeting(object):
     def Greeter(name):
-        return "Hello, Bob"
+            return "Hello, " + name
