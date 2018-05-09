@@ -10,7 +10,7 @@ class TestGreeting(unittest.TestCase):
             # Act
             result = Greeting.Greeter(name)
             # Assert
-            expected = "Hello, " + eachName
+            expected = "Hello, " + name
             self.assertEqual(result, expected)
     
     def test_Greeter_GivenNull_ShouldReturnHelloFriend(self):
@@ -21,3 +21,14 @@ class TestGreeting(unittest.TestCase):
         # Assert
         expected = "Hello, friend"
         self.assertEqual(result, expected)
+    
+    def test_Greeter_GivenShoutedNames_ShouldReturnGreetingInAllCaps(self):
+        shoutedNames = ["TOM", "BOB", "MARY", "NKULE"]
+        for eachName in shoutedNames:
+            # Arrange
+            name = eachName
+            # Act
+            result = Greeting.Greeter(name)
+            # Assert
+            expected = "HELLO, " + name
+            self.assertEqual(result, expected)
