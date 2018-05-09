@@ -50,5 +50,14 @@ class TestGreeting(unittest.TestCase):
         # Act
         result = Greeting.Greeter(name)
         # Assert
-        expected = "Hello, " + name[0] + " and " + name[1]
+        expected = "Hello, Tom and Bob"
+        self.assertEqual(result, expected)
+    
+    def test_Greeter_GivenAnyNumberOfNames_ShouldGreetWithAllNames(self):
+        # Arrange
+        name = ["Tom", "Bob", "Nkule", "Lungelo"]
+        # Act
+        result = Greeting.Greeter(name)
+        # Assert
+        expected = "Hello, Tom, Bob, Nkule and Lungelo"
         self.assertEqual(result, expected)
