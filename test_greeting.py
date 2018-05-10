@@ -53,11 +53,29 @@ class TestGreeting(unittest.TestCase):
         expected = "Hello, Tom and Bob"
         self.assertEqual(result, expected)
     
-    def test_Greeter_GivenAnyNumberOfNames_ShouldGreetWithAllNames(self):
+    def test_Greeter_GivenFourNames_ShouldGreetWithAllNames(self):
         # Arrange
-        name = ["Tom", "Bob", "Nkule", "Lungelo"]
+        names = ["Tom", "Bob", "Nkule", "Lungelo"]
         # Act
-        result = Greeting.Greeter(name)
+        result = Greeting.Greeter(names)
         # Assert
         expected = "Hello, Tom, Bob, Nkule and Lungelo"
+        self.assertEqual(result, expected)
+    
+    def test_Greeter_GivenAnyNumberOfNames_ShouldGreetWithAllNames(self):
+        # Arrange
+        names = ["Rick", "Morty", "Summer", "Beth", "Jerry", "Chris"]
+        # Act
+        result = Greeting.Greeter(names)
+        # Assert
+        expected = "Hello, Rick, Morty, Summer, Beth, Jerry and Chris"
+        self.assertEqual(result, expected)
+    
+    def test_Greeter_GivenMixOfNormalAndShoutedNames_ShouldGreetWithAllNamesAndShoutAtTheEnd(self):
+        # Arrange
+        names = ["Rick", "Morty", "Summer", "BETH", "Jerry", "Chris"]
+        # Act
+        result = Greeting.Greeter(names)
+        # Assert
+        expected = "Hello, Rick, Morty, Summer, Jerry and Chris. AND BETH"
         self.assertEqual(result, expected)

@@ -11,9 +11,16 @@ class Greeting(object):
             return "Hello, " + name
 
     @Greeter.register(list)
-    def _(names):
-        if len(names) > 1:
-            nameAtTheEnd = names[-1]
-            del names[-1]
-            joinNamesByCommas = ", ".join(names)
-            return "Hello, " + joinNamesByCommas + " and " + nameAtTheEnd
+    def _(names):        
+        nameAtTheEnd = names[-1]
+        shouted = ""
+
+        for name in names:
+            if name.isupper():
+                shouted = ". AND " + name
+                names.remove(name)
+
+        del names[-1]
+        joinNamesByCommas = ", ".join(names) 
+
+        return "Hello, " + joinNamesByCommas + " and " + nameAtTheEnd + shouted
