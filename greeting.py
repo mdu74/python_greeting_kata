@@ -1,6 +1,6 @@
 from functools import singledispatch
 
-class Greeting():
+class Greeting:
     @singledispatch
     def Greeter(name):
         if name == None:
